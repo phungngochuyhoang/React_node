@@ -1,38 +1,145 @@
-.App {
+:root {
+  --colorRed: rgb(219, 18, 11);
+  --colorGreen: rgb(37, 163, 12);
+  --colorBlue: rgb(128, 160, 230);
+}
+h1 {
   text-align: center;
+  text-transform: capitalize;
+  color: var(--colorBlue);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* function to do list */
+.todofunction {
+  max-width: 350px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todofunction .todofunction__item {
+  border-radius: 5px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: .5s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todofunction .todofunction__item:hover {
+  transform: scale(.95);
+  transition: .5s;
+}
+
+.todofunction .todofunction__item--add {
+  border: 1px solid var(--colorGreen);
+  color: var(--colorGreen);
+  margin-right: 20px;
+}
+
+.todofunction .todofunction__item--remove {
+  border: 1px solid var(--colorRed);
+  color: var(--colorRed);
+}
+
+/* to do list */
+.todolist {
+  padding: 0;
+}
+
+.todolist .todolist__item {
+  border: 1px solid var(--colorBlue);
+  border-radius: 10px;
+  padding: 10px;
+  list-style: none;
+  max-width: 350px;
+  margin: 10px auto;
+  cursor: pointer;
+  transform: translateX(0);
+  transition: .3s;
+  color: rgb(128, 160, 230);
+}
+
+.todolist .todolist__item:hover {
+  background-color: var(--colorBlue);
+  color: #fff;
+  transform: translateX(20px);
+  transition: .3s;
+}
+
+.todolist .item-selected {
+  transform: translateX(20px);
+  background-color: var(--colorBlue);
+  color: #fff;
+  transition: .3s;
+}
+
+/* show - hide */
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+/* modal  */
+.modal {
+  box-shadow: 0 0 2px 2px rgb(214, 210, 210);
+  width: 200px;
+  border-radius: 2px;
+  margin: 0 auto;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+
+.modal p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.modal .btn {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.modal .btn__item {
+  background-color: transparent;
+  border: 0;
+  padding: 5px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal .btn__item--yes {
+  border: 1px solid var(--colorGreen);
+  color: var(--colorGreen);
+}
+
+.modal .btn__item--no {
+  border: 1px solid var(--colorRed);
+  color: var(--colorRed);
+}
+
+.modal .btn__item--yes:hover {
+  background-color: var(--colorGreen);
+  color: #fff;
+}
+
+.modal .btn__item--no:hover {
+  background-color: var(--colorRed);
+  color: #fff;
 }
